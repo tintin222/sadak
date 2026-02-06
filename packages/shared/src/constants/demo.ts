@@ -1,0 +1,38 @@
+export const DEMO_USERS = [
+  {
+    id: 'demo-efe',
+    email: 'efe@sadak.demo',
+    phone: '+905551234501',
+    first_name: 'Efe',
+    last_name: 'Demir',
+    description: 'Denizbank Gold + TK Elite + TROY verified. Has upcoming Berlin trip.',
+    tier: 'Power User',
+  },
+  {
+    id: 'demo-ayse',
+    email: 'ayse@sadak.demo',
+    phone: '+905551234502',
+    first_name: 'Ayse',
+    last_name: 'Yilmaz',
+    description: 'Garanti Bonus Gold only. No upcoming trips.',
+    tier: 'Moderate User',
+  },
+  {
+    id: 'demo-mehmet',
+    email: 'mehmet@sadak.demo',
+    phone: '+905551234503',
+    first_name: 'Mehmet',
+    last_name: 'Kaya',
+    description: 'Denizbank Platinum + Garanti Bonus Platinum + TROY verified. Multiple trips.',
+    tier: 'Premium User',
+  },
+  {
+    id: 'demo-zeynep',
+    email: 'zeynep@sadak.demo',
+    phone: '+905551234504',
+    first_name: 'Zeynep',
+    last_name: 'Aksoy',
+    description: 'New user, no memberships. Discovery/request flow.',
+    tier: 'New User',
+  },
+] as const;

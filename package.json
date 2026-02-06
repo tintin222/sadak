@@ -1,0 +1,27 @@
+{
+  "name": "sadak-monorepo",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "turbo run dev",
+    "dev:user": "turbo run dev --filter=@sadak/user-app",
+    "dev:admin": "turbo run dev --filter=@sadak/admin-panel",
+    "dev:provider": "turbo run dev --filter=@sadak/provider-console",
+    "build": "turbo run build",
+    "lint": "turbo run lint",
+    "type-check": "turbo run type-check",
+    "db:generate-types": "pnpm --filter @sadak/database generate-types",
+    "db:migrate": "pnpm --filter @sadak/database migrate",
+    "db:seed": "pnpm --filter @sadak/database seed",
+    "db:reset": "pnpm --filter @sadak/database reset"
+  },
+  "devDependencies": {
+    "turbo": "^2.3.0",
+    "typescript": "^5.7.0"
+  },
+  "engines": {
+    "node": ">=18.0.0",
+    "pnpm": ">=9.0.0"
+  },
+  "packageManager": "pnpm@9.15.0"
+}

@@ -1,0 +1,14 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(pnpm install:*)",
+      "Bash(where:*)",
+      "Bash(node --version:*)",
+      "Bash(pnpm --filter @sadak/user-app build:*)",
+      "Bash(pnpm --filter @sadak/user-app dev:*)",
+      "Bash(timeout:*)",
+      "Bash(git init:*)",
+      "Bash(git add:*)"
+    ]
+  }
+}
