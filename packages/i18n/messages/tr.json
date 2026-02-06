@@ -177,7 +177,20 @@
     "addFirstTrip": "Ilk seyahatinizi ekleyin",
     "tripDetail": "Seyahat Detayi",
     "preparationScore": "Seyahatiniz %{score} hazir",
-    "saved": "{amount} tasarruf ettiniz!"
+    "saved": "{amount} tasarruf ettiniz!",
+    "addTripForm": {
+      "title": "Yeni Seyahat Ekle",
+      "origin": "Kalkis Sehri",
+      "originPlaceholder": "orn. Istanbul",
+      "destination": "Varis Sehri",
+      "destinationPlaceholder": "orn. Berlin",
+      "departureDate": "Gidis Tarihi",
+      "returnDate": "Donus Tarihi",
+      "flightNumber": "Ucus Numarasi (istege bagli)",
+      "flightNumberPlaceholder": "orn. TK1933",
+      "submit": "Seyahat Ekle",
+      "success": "Seyahat basariyla eklendi!"
+    }
   },
   "notifications": {
     "title": "Bildirimler",

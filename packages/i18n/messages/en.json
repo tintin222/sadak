@@ -177,7 +177,20 @@
     "addFirstTrip": "Add your first trip",
     "tripDetail": "Trip Detail",
     "preparationScore": "Your trip is {score}% prepared",
-    "saved": "You saved {amount}!"
+    "saved": "You saved {amount}!",
+    "addTripForm": {
+      "title": "Add New Trip",
+      "origin": "Origin City",
+      "originPlaceholder": "e.g. Istanbul",
+      "destination": "Destination City",
+      "destinationPlaceholder": "e.g. Berlin",
+      "departureDate": "Departure Date",
+      "returnDate": "Return Date",
+      "flightNumber": "Flight Number (optional)",
+      "flightNumberPlaceholder": "e.g. TK1933",
+      "submit": "Add Trip",
+      "success": "Trip added successfully!"
+    }
   },
   "notifications": {
     "title": "Notifications",
