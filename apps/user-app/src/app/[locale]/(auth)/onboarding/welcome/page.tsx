@@ -4,30 +4,21 @@ import { useState } from 'react';
 import { useTranslations } from 'next-intl';
 import { useRouter } from '@/i18n/routing';
 import { Button } from '@sadak/ui';
-import { Smartphone, Sparkles, ArrowRight, ChevronRight } from 'lucide-react';
+import { ArrowRight, ChevronRight } from 'lucide-react';
 import Image from 'next/image';
 
 const slides = [
   {
-    icon: null,
-    logo: true,
     titleKey: 'onboarding.slide1Title',
     subtitleKey: 'onboarding.slide1Subtitle',
-    gradient: 'from-blue-500 to-blue-700',
   },
   {
-    icon: Smartphone,
-    logo: false,
     titleKey: 'onboarding.slide2Title',
     subtitleKey: 'onboarding.slide2Subtitle',
-    gradient: 'from-emerald-500 to-teal-700',
   },
   {
-    icon: Sparkles,
-    logo: false,
     titleKey: 'onboarding.slide3Title',
     subtitleKey: 'onboarding.slide3Subtitle',
-    gradient: 'from-purple-500 to-indigo-700',
   },
 ];
 
@@ -49,9 +40,7 @@ export default function WelcomePage() {
   };
 
   const slide = slides[currentSlide];
-  const Icon = slide.icon;
   const isLast = currentSlide === slides.length - 1;
-  const isLogo = slide.logo;
 
   return (
     <div className="flex-1 flex flex-col min-h-screen">
@@ -67,24 +56,16 @@ export default function WelcomePage() {
 
       {/* Slide content */}
       <div className="flex-1 flex flex-col items-center justify-center px-8 text-center">
-        {isLogo ? (
-          <div className="w-40 h-40 rounded-3xl bg-white flex items-center justify-center mb-10 shadow-xl overflow-hidden">
-            <Image
-              src="/sadak-logo.jpeg"
-              alt="Sadakat"
-              width={160}
-              height={160}
-              className="object-contain p-2"
-              priority
-            />
-          </div>
-        ) : (
-          <div
-            className={`w-32 h-32 rounded-3xl bg-gradient-to-br ${slide.gradient} flex items-center justify-center mb-10 shadow-xl`}
-          >
-            {Icon && <Icon className="w-16 h-16 text-white" />}
-          </div>
-        )}
+        <div className="w-40 h-40 rounded-3xl bg-white flex items-center justify-center mb-10 shadow-xl overflow-hidden">
+          <Image
+            src="/sadak-logo.jpeg"
+            alt="Sadakat"
+            width={160}
+            height={160}
+            className="object-contain p-2"
+            priority
+          />
+        </div>
 
         <h1 className="text-2xl font-bold text-gray-900 mb-4">
           {t(slide.titleKey)}
