@@ -4,7 +4,7 @@ import { useState } from 'react';
 import { useTranslations } from 'next-intl';
 import { useRouter } from '@/i18n/routing';
 import { Button, Input } from '@sadak/ui';
-import { Plane } from 'lucide-react';
+import Image from 'next/image';
 
 export default function LoginPage() {
   const t = useTranslations();
@@ -29,8 +29,15 @@ export default function LoginPage() {
     <div className="flex-1 flex flex-col justify-between p-6 pt-16 md:pt-12">
       {/* Logo & Welcome */}
       <div className="flex flex-col items-center text-center mt-8">
-        <div className="w-16 h-16 bg-blue-600 rounded-2xl flex items-center justify-center mb-6">
-          <Plane className="w-8 h-8 text-white" />
+        <div className="w-24 h-24 rounded-2xl bg-white flex items-center justify-center mb-6 shadow-lg overflow-hidden">
+          <Image
+            src="/sadak-logo.jpeg"
+            alt="Sadakat"
+            width={96}
+            height={96}
+            className="object-contain p-1"
+            priority
+          />
         </div>
         <h1 className="text-2xl font-bold text-gray-900 mb-2">
           {t('auth.welcome')}
