@@ -34,6 +34,13 @@ const MOCK_TRIP = {
   flightNumber: 'TK1933',
 };
 
+const TRIP_ACTIONS = [
+  { key: 'buyEsim', href: '/flows/esim' },
+  { key: 'bookTransfer', href: '/flows/transfer' },
+  { key: 'getInsurance', href: '/flows/insurance' },
+  { key: 'loungeAccess', href: '/flows/lounge' },
+];
+
 const QUICK_ACTIONS = [
   { icon: Smartphone, labelKey: 'home.buyEsim', color: 'bg-blue-100 text-blue-600', href: '/flows/esim' },
   { icon: Car, labelKey: 'home.bookTransfer', color: 'bg-green-100 text-green-600', href: '/flows/transfer' },
@@ -137,34 +144,38 @@ export default function HomePage() {
 
       <div className="px-4 flex flex-col gap-5 pb-4">
         {/* C. Upcoming Trip Card */}
-        <Card className="overflow-hidden border-0 bg-gradient-to-r from-blue-600 to-blue-800 text-white shadow-lg">
-          <CardContent className="p-4">
-            <div className="flex items-center justify-between mb-3">
-              <span className="text-xs font-medium text-blue-200">{t('home.upcomingTrip')}</span>
-              <Plane className="w-4 h-4 text-blue-200" />
-            </div>
-            <div className="flex items-center gap-3 mb-3">
-              <span className="text-3xl">{MOCK_TRIP.flag}</span>
-              <div>
-                <p className="text-lg font-bold">{MOCK_TRIP.destination}</p>
-                <p className="text-sm text-blue-200">
-                  {MOCK_TRIP.dates} · {MOCK_TRIP.flightNumber}
-                </p>
+        <Link href="/trips" className="block">
+          <Card className="overflow-hidden border-0 bg-gradient-to-r from-blue-600 to-blue-800 text-white shadow-lg active:scale-[0.98] transition-transform">
+            <CardContent className="p-4">
+              <div className="flex items-center justify-between mb-3">
+                <span className="text-xs font-medium text-blue-200">{t('home.upcomingTrip')}</span>
+                <Plane className="w-4 h-4 text-blue-200" />
               </div>
-            </div>
-            {/* Quick action chips */}
-            <div className="flex gap-2 overflow-x-auto scrollbar-hide">
-              {['buyEsim', 'bookTransfer', 'getInsurance', 'loungeAccess'].map((key) => (
-                <button
-                  key={key}
-                  className="px-3 py-1.5 bg-white/20 hover:bg-white/30 rounded-full text-xs font-medium whitespace-nowrap transition-colors"
-                >
-                  {t(`home.${key}`)}
-                </button>
-              ))}
-            </div>
-          </CardContent>
-        </Card>
+              <div className="flex items-center gap-3 mb-3">
+                <span className="text-3xl">{MOCK_TRIP.flag}</span>
+                <div>
+                  <p className="text-lg font-bold">{MOCK_TRIP.destination}</p>
+                  <p className="text-sm text-blue-200">
+                    {MOCK_TRIP.dates} · {MOCK_TRIP.flightNumber}
+                  </p>
+                </div>
+              </div>
+              {/* Quick action chips — link to flows */}
+              <div className="flex gap-2 overflow-x-auto scrollbar-hide">
+                {TRIP_ACTIONS.map(({ key, href }) => (
+                  <Link
+                    key={key}
+                    href={href}
+                    onClick={(e) => e.stopPropagation()}
+                    className="px-3 py-1.5 bg-white/20 hover:bg-white/30 rounded-full text-xs font-medium whitespace-nowrap transition-colors"
+                  >
+                    {t(`home.${key}`)}
+                  </Link>
+                ))}
+              </div>
+            </CardContent>
+          </Card>
+        </Link>
 
         {/* D. Quick Actions Grid */}
         <div>

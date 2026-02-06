@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import { useTranslations } from 'next-intl';
+import { Link } from '@/i18n/routing';
 import { Button, Badge, Card, CardContent, Progress } from '@sadak/ui';
 import {
   Plus,
@@ -30,11 +31,11 @@ const MOCK_TRIPS = [
     status: 'upcoming',
     preparationScore: 80,
     services: [
-      { type: 'esim', label: 'eSIM Activated', status: 'completed', icon: Smartphone },
-      { type: 'insurance', label: 'Insurance Purchased', status: 'completed', icon: Shield },
-      { type: 'transfer', label: 'Transfer Booked', status: 'pending', icon: Car },
-      { type: 'lounge', label: 'Lounge Access', status: 'available', icon: Armchair },
-      { type: 'fast_track', label: 'Fast Track', status: 'available', icon: Zap },
+      { type: 'esim', label: 'eSIM Activated', status: 'completed', icon: Smartphone, href: '/flows/esim' },
+      { type: 'insurance', label: 'Insurance Purchased', status: 'completed', icon: Shield, href: '/flows/insurance' },
+      { type: 'transfer', label: 'Transfer Booked', status: 'pending', icon: Car, href: '/flows/transfer' },
+      { type: 'lounge', label: 'Lounge Access', status: 'available', icon: Armchair, href: '/flows/lounge' },
+      { type: 'fast_track', label: 'Fast Track', status: 'available', icon: Zap, href: '/flows/fast-track' },
     ],
   },
 ];
@@ -230,25 +231,27 @@ function TripDetail({
                 </div>
 
                 {/* Content */}
-                <Card className="flex-1 mb-2">
-                  <CardContent className="p-3 flex items-center justify-between">
-                    <div className="flex items-center gap-2">
-                      <Icon className="w-4 h-4 text-gray-500" />
-                      <span className="text-sm font-medium text-gray-900">{service.label}</span>
-                    </div>
-                    {service.status === 'available' && (
-                      <Button size="sm" variant="outline" className="text-xs h-7">
-                        + Add
-                      </Button>
-                    )}
-                    {service.status === 'completed' && (
-                      <Badge variant="success" className="text-[10px]">Done</Badge>
-                    )}
-                    {service.status === 'pending' && (
-                      <Badge variant="warning" className="text-[10px]">Booked</Badge>
-                    )}
-                  </CardContent>
-                </Card>
+                <Link href={service.href} className="flex-1 mb-2">
+                  <Card className="hover:shadow-md transition-shadow">
+                    <CardContent className="p-3 flex items-center justify-between">
+                      <div className="flex items-center gap-2">
+                        <Icon className="w-4 h-4 text-gray-500" />
+                        <span className="text-sm font-medium text-gray-900">{service.label}</span>
+                      </div>
+                      {service.status === 'available' && (
+                        <Button size="sm" variant="outline" className="text-xs h-7 pointer-events-none">
+                          + Add
+                        </Button>
+                      )}
+                      {service.status === 'completed' && (
+                        <Badge variant="success" className="text-[10px]">Done</Badge>
+                      )}
+                      {service.status === 'pending' && (
+                        <Badge variant="warning" className="text-[10px]">Booked</Badge>
+                      )}
+                    </CardContent>
+                  </Card>
+                </Link>
               </div>
             );
           })}
