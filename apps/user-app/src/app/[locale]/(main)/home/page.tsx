@@ -123,14 +123,14 @@ export default function HomePage() {
               <ChevronDown className="w-3.5 h-3.5 text-amber-600" />
             </button>
             {/* Notification bell */}
-            <button className="relative p-2">
+            <Link href="/notifications" className="relative p-2">
               <Bell className="w-5 h-5 text-gray-600" />
               {MOCK_USER.notificationCount > 0 && (
                 <span className="absolute top-1 right-1 w-4 h-4 bg-red-500 text-white text-[10px] font-bold rounded-full flex items-center justify-center">
                   {MOCK_USER.notificationCount}
                 </span>
               )}
-            </button>
+            </Link>
           </div>
         </div>
       </div>
