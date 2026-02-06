@@ -8,7 +8,10 @@
       "Bash(pnpm --filter @sadak/user-app dev:*)",
       "Bash(timeout:*)",
       "Bash(git init:*)",
-      "Bash(git add:*)"
+      "Bash(git add:*)",
+      "Bash(git remote add:*)",
+      "Bash(git branch:*)",
+      "Bash(copy \"c:\\\\Users\\\\Gaming\\\\Documents\\\\Projects\\\\Sadak\\\\packages\\\\images\\\\sadak-logo.jpeg\" \"c:\\\\Users\\\\Gaming\\\\Documents\\\\Projects\\\\Sadak\\\\apps\\\\user-app\\\\public\\\\sadak-logo.jpeg\")"
     ]
   }
 }
